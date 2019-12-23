@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE
+namespace DS
 {
-    public class Class1
+    public class DataSource
     {
     }
 }
