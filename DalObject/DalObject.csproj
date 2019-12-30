@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1349CA2D-8838-4DE2-AF2A-8CCA9D36E7D2}</ProjectGuid>
+    <ProjectGuid>{8C0D44CD-5906-46EC-A2AF-2F699890BFC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BL</RootNamespace>
-    <AssemblyName>BL</AssemblyName>
+    <RootNamespace>Dal</RootNamespace>
+    <AssemblyName>DalObject</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,11 +17,10 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,22 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL.cs" />
-    <Compile Include="BlApi.cs" />
-    <Compile Include="BO.cs" />
+    <Compile Include="Cloning.cs" />
+    <Compile Include="DalObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{ec38a573-6bc6-49fb-be50-cb61c55d0c5b}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\DalApi\DalApi.csproj">
+      <Project>{51ff4e97-3dd3-467a-bb2e-6cb0d85626ba}</Project>
+      <Name>DalApi</Name>
     </ProjectReference>
-    <ProjectReference Include="..\project_DotNet5780_01_9427_9539\BeNotUsing.csproj">
-      <Project>{8cce94e4-2814-44fb-b85d-ca76fa2e49bf}</Project>
-      <Name>BeNotUsing</Name>
+    <ProjectReference Include="..\DS\DS.csproj">
+      <Project>{8aaa6559-21f0-4695-b835-90256a0f477e}</Project>
+      <Name>DS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

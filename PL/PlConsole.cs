@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlApi;
+using BO;
 
-namespace BE
+namespace PlConsole
 {
-    public class Orders
+    public class PlConsole
     {
     }
 }

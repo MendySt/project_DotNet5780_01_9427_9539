@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,15 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankAccount.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="configuration.cs" />
-    <Compile Include="enum%27s.cs" />
-    <Compile Include="Guest.cs" />
-    <Compile Include="GuestRequest.cs" />
-    <Compile Include="Host.cs" />
-    <Compile Include="HostingUnit.cs" />
-    <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="PlConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +49,9 @@
       <Project>{1349ca2d-8838-4de2-af2a-8cca9d36e7d2}</Project>
       <Name>BL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\project_DotNet5780_01_9427_9539\BE.csproj">
+    <ProjectReference Include="..\project_DotNet5780_01_9427_9539\BeNotUsing.csproj">
       <Project>{8cce94e4-2814-44fb-b85d-ca76fa2e49bf}</Project>
-      <Name>BE</Name>
+      <Name>BeNotUsing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

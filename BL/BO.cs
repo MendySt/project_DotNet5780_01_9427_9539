@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE
+namespace BO
 {
-    public class Guest
+    class BO
     {
     }
 }

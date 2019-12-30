@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace DO
 {
-    public class Class1
+    public class enum_s
     {
     }
 }
