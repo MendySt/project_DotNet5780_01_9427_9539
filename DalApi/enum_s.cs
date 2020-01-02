@@ -8,5 +8,7 @@ namespace DO
 {
     public class enum_s
     {
+        public enum 
+
     }
 }

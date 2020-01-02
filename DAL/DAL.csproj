@@ -44,11 +44,5 @@
     <Compile Include="imp_D1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\project_DotNet5780_01_9427_9539\BeNotUsing.csproj">
-      <Project>{8cce94e4-2814-44fb-b85d-ca76fa2e49bf}</Project>
-      <Name>BeNotUsing</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
