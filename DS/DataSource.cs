@@ -8,19 +8,19 @@ using DO.Models;
 
 namespace DS
 {
-    static class DataSource
+    public static class DataSource
     {
-        static List<GuestRequest> guestRequests;
-        static List<HostingUnit> hostingUnits;
-        static List<Order> orders;
-        static List<Person> persons;
-        static List<Host> hosts;
-        static List<BankBranch> bankBranches;
+        public static List<GuestRequest> guestRequests;
+        public static List<HostingUnit> hostingUnits;
+        public static List<Order> orders;
+        public static List<Person> persons;
+        public static List<Host> hosts;
+        public static List<BankBranch> bankBranches;
         static DataSource()
         {
             GuestRequest guestRequest = new GuestRequest();
             guestRequest.ClientId = 12345678;
-            guestRequest.Area = Area_GuestRequest;
+            //guestRequest.Area = Area_GuestRequest;
             guestRequests = new List<GuestRequest>();
             hostingUnits = null;
             orders = null;

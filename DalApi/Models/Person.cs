@@ -8,7 +8,7 @@ namespace DO.Models
 {
     public class Person
     {
-        public string Id { set; get;}
+        public int Id { set; get;}
         public IdType_person IdType{ set; get;}
         public Status_person Status { set; get;}
         public double Password { set; get; }

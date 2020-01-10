@@ -12,6 +12,7 @@ namespace DO.Models
         public int Owner { get; set; }
         public string HostingUnitName { get; set; }
         public bool[,] Diary { get; set; }
+        public bool isAvailable { get; set; }
         public override string ToString() => $"{Key}  {Owner} {HostingUnitName } {Diary }class HostingUnit";
 
 

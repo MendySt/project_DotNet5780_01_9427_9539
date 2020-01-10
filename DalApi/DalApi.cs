@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DalApi
 {
-    class DalApi
-    {
-    }
+    //class DalApi
+    //{
+    //}
 }

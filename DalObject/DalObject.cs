@@ -4,99 +4,145 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DalApi;
+using DalApi.Interfaces;
 using DO;
+using DO.Models;
 using DS;
 
 namespace DalObject
 {
-    public class DalObject : IDal
+    public class DalObject : IDal,IGuestRequestService,IHostService,IPersonService
     {
-        void IDal.AddGuestRequest(GuestRequest guestRequest)
+        public void AddGuestRequest(GuestRequest guestRequest)
         {
-           DataSource.guestRequests.Add(Cloning.Clone(newGuestRequest));
-        }
-       
-        void IDal.AddHostingUnit(HostingUnit hostingUnit)
-        {
-            DataSource.hostingUnit.Add(Cloning.Clone(newHostingUnit));
+            DataSource.guestRequests.Add(Cloning.Clone(guestRequest));
         }
 
-        void IDal.AddOrder(Order order)
+        public void AddHostingUnit(HostingUnit hostingUnit)
         {
-            DataSource.Order.Add(Cloning.Clone(newOrder));
+            DataSource.hostingUnits.Add(Cloning.Clone(hostingUnit));
         }
 
-        void IDal.AddPerson(Person person)
+        
+
+        public void AddOrder(Order order)
         {
-            DataSource.Person.Add(Cloning.Clone(newPerson));
+            DataSource.orders.Add(Cloning.Clone(order));
         }
 
-        List<BankBranch> IDal.GetBankAccount()
+        public void AddPerson(Person person)
+        {
+            DataSource.persons.Add(Cloning.Clone(person));
+        }
+
+        public List<BankBranch> GetBankBranches()
+        {
+            List<BankBranch> newBankBranches = new List<BankBranch>();
+            foreach (var item in DataSource.bankBranches)
+            {
+                newBankBranches.Add(Cloning.Clone(item));
+            }
+            return newBankBranches;
+        }
+
+        public GuestRequest GetGuestRequest(int key)
+        {
+            return Cloning.Clone(DataSource.guestRequests.Find(x => x.Key == key));
+        }
+
+        public List<GuestRequest> GetGuestRequests()
+        {
+            List<GuestRequest> newGuestRequest = new List<GuestRequest>();
+            foreach (var item in DataSource.guestRequests)
+            {
+                newGuestRequest.Add(Cloning.Clone(item));
+            }
+            return newGuestRequest;
+        }
+
+        public HostingUnit GetHostingUnit(int key)
+        {
+            return Cloning.Clone(DataSource.hostingUnits.Find(x => x.Key== key));
+        }
+
+        public List<HostingUnit> GetHostingUnits()
+        {
+            List<HostingUnit> newhostingUnits = new List<HostingUnit>();
+            foreach (var item in DataSource.hostingUnits)
+            {
+                newhostingUnits.Add(Cloning.Clone(item));
+            }
+            return newhostingUnits;
+        }
+
+        //public void AddHostRequest(Host HostRequest)
+        //{
+        //    DataSource..Add(Cloning.Clone(HostRequest));
+
+        //}
+
+        //public Host GetHostRequest(int key)
+        //{
+        //    return Cloning.Clone(DataSource..Find(x => x.Key == key));/// need to find
+        //}
+
+        public Order GetOrder(int key)
+        {
+            return Cloning.Clone(DataSource.orders.Find(x => x.Key == key));
+        }
+
+        public List<Order> GetOrders()
+        {
+            List<Order> neworders = new List<Order>();
+            foreach (var item in DataSource.orders)
+            {
+                neworders.Add(Cloning.Clone(item));
+            }
+            return neworders;
+        }
+
+        public Person GetPerson(int id)
+        {
+            return Cloning.Clone(DataSource.persons.Find(x => x.Id == id));
+        }
+
+        public void RemoveHostingUnit(int hostingUnitKey)
+        {
+            DataSource.hostingUnits.Find(x => x.Key == hostingUnitKey).isAvailable = false;
+        }
+
+        public void UpdateGuestRequest( GuestRequest guestRequest)
         {
 
         }
 
-        GuestRequest IDal.GetGuestRequest()
+        public void UpdateGuestRequestStatus(int requestId, Status_GuestRequst requestStatus)
+        {
+            DataSource.guestRequests.Find(x => x.Key == requestId).Status = requestStatus;
+        }
+
+        public void UpdateHostingUnit(HostingUnit update_hostingUnit)
+        {
+            DataSource.hostingUnits.Remove(DataSource.hostingUnits.Find(x => x.Key == update_hostingUnit.Key));
+            DataSource.hostingUnits.Add(Cloning.Clone(update_hostingUnit));
+        }
+
+        public void UpdateHostRequest(Host updateHostRequest)
         {
             throw new NotImplementedException();
         }
 
-        List<GuestRequest> IDal.GetGuestRequests()
+        public void UpdateHostRequestStatus(Host HostRequest)
         {
             throw new NotImplementedException();
         }
 
-        HostingUnit IDal.GetHostingUnit()
+        public void UpdateOrder(int orderKey)
         {
             throw new NotImplementedException();
         }
 
-        List<HostingUnit> IDal.GetHostingUnits()
-        {
-            throw new NotImplementedException();
-        }
-
-        Order IDal.GetOrder()
-        {
-            throw new NotImplementedException();
-        }
-
-        List<Order> IDal.GetOrders()
-        {
-            throw new NotImplementedException();
-        }
-
-        Person IDal.GetPerson()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDal.RemoveHostingUnit(int hostingUnitKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDal.UpdateGuestRequest(GuestRequest updateGuestRequest)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDal.UpdateGuestRequestStatus(int update_GuestRequestKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDal.UpdateHostingUnit(HostingUnit update_hostingUnit)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDal.UpdateOrder(int orderKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDal.UpdatePerson(Person update_Person)
+        public void UpdatePerson(Person person)
         {
             throw new NotImplementedException();
         }

@@ -6,6 +6,6 @@ namespace DalApi.Interfaces
     {
         void UpdatePerson(Person person);
         void AddPerson(Person person);
-        Person GetPerson();
+        Person GetPerson(int id);
     }
 }
