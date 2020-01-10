@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using DalApi;
 using DO;
-using DS;
+
 namespace DalObject
 {
     public class DalObject : IDal
     {
         void IDal.AddGuestRequest(GuestRequest guestRequest)
         {
-            throw new NotImplementedException();
+            
         }
 
         void IDal.AddHostingUnit(HostingUnit hostingUnit)

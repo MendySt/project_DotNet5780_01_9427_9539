@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DO;
-namespace DalApi
+
+    namespace DalApi
+//public delegate bool Predicate<T>(T obj);
+// check the get and add
+
 {
-     public interface IDal 
+    public interface IDal 
      {
-        void AddGuestRequest(GuestRequest guestRequest);
-        void UpdateGuestRequestStatus(int update_GuestRequestKey);
-        GuestRequest GetGuestRequest();
-        void UpdateGuestRequest(GuestRequest updateGuestRequest);
+        
         void AddHostingUnit(HostingUnit hostingUnit);
         void RemoveHostingUnit(int hostingUnitKey);
         void UpdateHostingUnit(HostingUnit update_hostingUnit);
@@ -26,13 +27,7 @@ namespace DalApi
         List<GuestRequest> GetGuestRequests();
         List<Order> GetOrders();
         List<BankBranch> GetBankAccount();
-        void AddPerson(Person person);
-        Person GetPerson();
-        void UpdatePerson(Person update_Person);
-
-
-
-
-
+        
+        
     }
 }

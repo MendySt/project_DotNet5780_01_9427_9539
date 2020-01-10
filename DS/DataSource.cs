@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DO;
+using DO.Models;
+
 namespace DS
 {
     static class DataSource
@@ -17,14 +19,14 @@ namespace DS
         static DataSource()
         {
             GuestRequest guestRequest = new GuestRequest();
-            guestRequest.FamilyName = null;
-            guestRequests =new List<GuestRequest>();
-            guestRequests.Add(guestRequest);
-         hostingUnits=null;
-         orders=null;
-         persons=null;
-         hosts = null;
-         bankBranches = null;
+            guestRequest.ClientId = 12345678;
+            guestRequest.Area = Area_GuestRequest;
+            guestRequests = new List<GuestRequest>();
+            hostingUnits = null;
+            orders = null;
+            persons = null;
+            hosts = null;
+            bankBranches = null;
         }
     }
 }

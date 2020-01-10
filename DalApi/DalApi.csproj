@@ -31,28 +31,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankBranch.cs" />
+    <Compile Include="Interfaces\IHostService.cs" />
+    <Compile Include="Interfaces\IGuestRequestService.cs" />
+    <Compile Include="Interfaces\IPersonService.cs" />
+    <Compile Include="Models\BankBranch.cs" />
     <Compile Include="DalApi.cs" />
     <Compile Include="DalConfig.cs" />
     <Compile Include="DalFactory.cs" />
     <Compile Include="enum_s.cs" />
-    <Compile Include="Guest.cs" />
-    <Compile Include="GuestRequest.cs" />
-    <Compile Include="Host.cs" />
-    <Compile Include="HostingUnit.cs" />
-    <Compile Include="IDal.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\GuestRequest.cs" />
+    <Compile Include="Models\Host.cs" />
+    <Compile Include="Models\HostingUnit.cs" />
+    <Compile Include="Interfaces\IDal.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //done
-namespace DO
+namespace DO.Models
 {
     public class BankBranch
     {
-        private int bankNUmber;
-        private string bankName;
-        private int branchNumber;
-        private string branchAdress;
-        private string branchCity;
         //property
         public int BankNUmber { get; set; }
         public string BankName { get; set; }
@@ -21,10 +16,8 @@ namespace DO
         public string BranchCity { get; set; }
 
 
-        public override string ToString()
-        {
-            return $"{bankNUmber}{BankName}{branchNumber}{branchAdress}{branchCity}";
-        }
+        public override string ToString() => $"{BankNUmber} {BankName} {BranchNumber} {BranchAdress} {BranchCity}";
+        
         
     }
 }

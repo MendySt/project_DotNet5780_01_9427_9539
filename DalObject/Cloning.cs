@@ -1,33 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DalApi;
-using DO;
-using DS;
+﻿using System.Reflection;
+using System;
 
 namespace DalObject
-{
-    static class Cloning
+{ 
+    public static class Cloning
     {
-        internal static GuestRequest Clone(this GuestRequest original)
+        public static T Clone<T>(this T original)
         {
-            GuestRequest target = new GuestRequest();
-            target.GuestRequestKey = original.GuestRequestKey;
+            T result = (T)Activator.CreateInstance(original.GetType()); // New instance of original object
 
-            return target;
+            foreach (PropertyInfo prop in result.GetType().GetProperties())
+            {
+                prop.SetValue(result, original.GetType().GetProperty(prop.Name).GetValue(original, null));
+            } // Iterate all fields in new result instance, and set value from original object
+
+            return result;
         }
-
-        //internal static Lecture Clone(this Lecture original)
-        //{
-        //    Lecture target = new Lecture();
-        //    target.id = original.id;
-        //...
-        //return target;
-        
-        
     }
-
 }
-
