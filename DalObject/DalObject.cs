@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DalApi;
 using DO;
+using DS;
 
 namespace DalObject
 {
@@ -12,27 +13,27 @@ namespace DalObject
     {
         void IDal.AddGuestRequest(GuestRequest guestRequest)
         {
-            
+           DataSource.guestRequests.Add(Cloning.Clone(newGuestRequest));
         }
-
+       
         void IDal.AddHostingUnit(HostingUnit hostingUnit)
         {
-            throw new NotImplementedException();
+            DataSource.hostingUnit.Add(Cloning.Clone(newHostingUnit));
         }
 
         void IDal.AddOrder(Order order)
         {
-            throw new NotImplementedException();
+            DataSource.Order.Add(Cloning.Clone(newOrder));
         }
 
         void IDal.AddPerson(Person person)
         {
-            throw new NotImplementedException();
+            DataSource.Person.Add(Cloning.Clone(newPerson));
         }
 
         List<BankBranch> IDal.GetBankAccount()
         {
-            throw new NotImplementedException();
+
         }
 
         GuestRequest IDal.GetGuestRequest()
