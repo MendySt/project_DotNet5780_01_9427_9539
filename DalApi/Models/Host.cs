@@ -13,7 +13,8 @@ namespace DO.Models
         public short BranchNumber { get; set; }
         public int BankAccountNumber { get; set; }
         public bool CollectionClearance { get; set; }
-        public override string ToString()=> $"{Id} {BankNumber} {BranchNumber } {BankAccountNumber} {CollectionClearance}  class Host";
-        
+        public bool IsAvailable { get; set; }
+        public override string ToString()=> $"{Id} {BankNumber} {BranchNumber } {IsAvailable} {BankAccountNumber} {CollectionClearance}  class Host";
+       
     }
 }

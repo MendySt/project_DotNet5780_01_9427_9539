@@ -11,19 +11,22 @@ using DS;
 
 namespace DalObject
 {
-    public class DalObject : IDal,IGuestRequestService,IHostService,IPersonService
+    public class DalObject : IDal, IGuestRequestService, IHostService, IPersonService, IHosingUnitService, IOrderService, IBankBranchService
     {
         public void AddGuestRequest(GuestRequest guestRequest)
         {
             DataSource.guestRequests.Add(Cloning.Clone(guestRequest));
         }
 
+        public void AddHost(Host host)
+        {
+            DataSource.hosts.Add(Cloning.Clone(host));
+        }
+
         public void AddHostingUnit(HostingUnit hostingUnit)
         {
             DataSource.hostingUnits.Add(Cloning.Clone(hostingUnit));
         }
-
-        
 
         public void AddOrder(Order order)
         {
@@ -35,13 +38,54 @@ namespace DalObject
             DataSource.persons.Add(Cloning.Clone(person));
         }
 
+        public void DeleteHost(int id)
+        {
+            DataSource.hosts.Find(x => x.Id == id).IsAvailable = false;
+        }
+
         public List<BankBranch> GetBankBranches()
         {
             List<BankBranch> newBankBranches = new List<BankBranch>();
-            foreach (var item in DataSource.bankBranches)
+            newBankBranches.Add(new BankBranch
             {
-                newBankBranches.Add(Cloning.Clone(item));
-            }
+                BankNUmber = 1,
+                BankName = "mendy",
+                BranchNumber = 1,
+                BranchAdress = "habal shem tov 1",
+                BranchCity = "kfar chabad"
+            });
+            newBankBranches.Add(new BankBranch
+            {
+                BankNUmber = 2,
+                BankName = "asi",
+                BranchNumber = 2,
+                BranchAdress = "habal shem tov 2",
+                BranchCity = "kfar chabad"
+            });
+            newBankBranches.Add(new BankBranch
+            {
+                BankNUmber = 3,
+                BankName = "weis",
+                BranchNumber = 3,
+                BranchAdress = "habal shem tov 3",
+                BranchCity = "kfar chabad"
+            });
+            newBankBranches.Add(new BankBranch
+            {
+                BankNUmber = 4,
+                BankName = "mendel",
+                BranchNumber = 4,
+                BranchAdress = "habal shem tov 4",
+                BranchCity = "kfar chabad"
+            });
+            newBankBranches.Add(new BankBranch
+            {
+                BankNUmber = 5,
+                BankName = "mendel",
+                BranchNumber = 5,
+                BranchAdress = "habal shem tov 5",
+                BranchCity = "kfar chabad"
+            });
             return newBankBranches;
         }
 
@@ -60,9 +104,14 @@ namespace DalObject
             return newGuestRequest;
         }
 
+        public Host GetHost(int id)
+        {
+            return Cloning.Clone(DataSource.hosts.Find(x => x.Id == id));
+        }
+
         public HostingUnit GetHostingUnit(int key)
         {
-            return Cloning.Clone(DataSource.hostingUnits.Find(x => x.Key== key));
+            return Cloning.Clone(DataSource.hostingUnits.Find(x => x.Key == key));
         }
 
         public List<HostingUnit> GetHostingUnits()
@@ -74,17 +123,46 @@ namespace DalObject
             }
             return newhostingUnits;
         }
+      
+        public Person GetPerson(int id)
+        {
+            return Cloning.Clone(DataSource.persons.Find(x => x.Id == id));
+        }
 
-        //public void AddHostRequest(Host HostRequest)
-        //{
-        //    DataSource..Add(Cloning.Clone(HostRequest));
+        public void RemoveHostingUnit(int hostingUnitKey)
+        {
+            DataSource.hostingUnits.Find(x => x.Key == hostingUnitKey).IsAvailable = false;
+        }
 
-        //}
+        public void UpdateGuestRequest(GuestRequest guestRequest)
+        {
+            DataSource.guestRequests.Remove(DataSource.guestRequests.Find(x => x.Key == guestRequest.Key));
+            DataSource.guestRequests.Add(Cloning.Clone(guestRequest));
 
-        //public Host GetHostRequest(int key)
-        //{
-        //    return Cloning.Clone(DataSource..Find(x => x.Key == key));/// need to find
-        //}
+        }
+
+        public void UpdateGuestRequestStatus(int requestId, Status_GuestRequst requestStatus)
+        {
+            DataSource.guestRequests.Find(x => x.Key == requestId).Status = requestStatus;
+        }
+
+        public void UpdateHost(Host host)
+        {
+            DataSource.hosts.Remove(DataSource.hosts.Find(x => x.Id == host.Id));
+            DataSource.hosts.Add(Cloning.Clone(host));
+        }
+
+        public void UpdatePerson(Person person)
+        {
+            DataSource.persons.Remove(DataSource.persons.Find(x => x.Id == person.Id));
+            DataSource.persons.Add(Cloning.Clone(person));
+        }
+
+        public void UpdateHostingUnit(HostingUnit update_hostingUnit)
+        {
+            DataSource.hostingUnits.Remove(DataSource.hostingUnits.Find(x => x.Key == update_hostingUnit.Key));
+            DataSource.hostingUnits.Add(Cloning.Clone(update_hostingUnit));
+        }
 
         public Order GetOrder(int key)
         {
@@ -101,50 +179,11 @@ namespace DalObject
             return neworders;
         }
 
-        public Person GetPerson(int id)
+        public void UpdateOrderStatus(int key, Status_Order status_Order)
         {
-            return Cloning.Clone(DataSource.persons.Find(x => x.Id == id));
+            DataSource.orders.Find(x => x.Key == key).Status = status_Order;
         }
 
-        public void RemoveHostingUnit(int hostingUnitKey)
-        {
-            DataSource.hostingUnits.Find(x => x.Key == hostingUnitKey).isAvailable = false;
-        }
-
-        public void UpdateGuestRequest( GuestRequest guestRequest)
-        {
-
-        }
-
-        public void UpdateGuestRequestStatus(int requestId, Status_GuestRequst requestStatus)
-        {
-            DataSource.guestRequests.Find(x => x.Key == requestId).Status = requestStatus;
-        }
-
-        public void UpdateHostingUnit(HostingUnit update_hostingUnit)
-        {
-            DataSource.hostingUnits.Remove(DataSource.hostingUnits.Find(x => x.Key == update_hostingUnit.Key));
-            DataSource.hostingUnits.Add(Cloning.Clone(update_hostingUnit));
-        }
-
-        public void UpdateHostRequest(Host updateHostRequest)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateHostRequestStatus(Host HostRequest)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateOrder(int orderKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdatePerson(Person person)
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }
