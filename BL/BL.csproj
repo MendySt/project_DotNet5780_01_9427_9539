@@ -45,6 +45,16 @@
     <Compile Include="BL.cs" />
     <Compile Include="BlApi.cs" />
     <Compile Include="BO.cs" />
+    <Compile Include="IBl.cs" />
+    <Compile Include="Models\BankBranchBO.cs" />
+    <Compile Include="Models\ClientBO.cs" />
+    <Compile Include="Models\enumBO.cs" />
+    <Compile Include="Models\GuestRequestBO.cs" />
+    <Compile Include="Models\HostBO.cs" />
+    <Compile Include="Models\HostingUnitBO.cs" />
+    <Compile Include="Models\ManagerBO.cs" />
+    <Compile Include="Models\OrderBO.cs" />
+    <Compile Include="Models\PersonBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

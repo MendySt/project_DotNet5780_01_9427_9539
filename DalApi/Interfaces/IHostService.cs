@@ -4,7 +4,7 @@ namespace DalApi.Interfaces
 {
     public interface IHostService
     {
-        void AddHost(Host host);
+        int AddHost(Host host);
         void DeleteHost(int id);
         Host GetHost(int id);
         void UpdateHost(Host host);

@@ -8,12 +8,6 @@ namespace DO.Models
 {
     public class  Order
     {
-        private int key;
-        private int hotingUnitKey;
-        private int guestRequestKey;
-        private DateTime orderDate;
-        private DateTime sentDate;
-        private DateTime closeDate;
         public int Key { get; set; }
         public int HostingUnitKey { get; set; }
         public int GuestRequestKey { get; set; }
@@ -21,11 +15,8 @@ namespace DO.Models
         public DateTime SentDate { get; set; }
         public DateTime CloseDate { get; set; }
         public Status_Order Status { get; set; }
-        public override string ToString()
-        {
-            return $"{key} ' ' { hotingUnitKey} ' '{guestRequestKey }' '{orderDate }' '{ sentDate}' '{closeDate}" +
-                $" {Status}' '{"class Host"}";
-        }
+        public override string ToString() => $"{Key} {HostingUnitKey} {GuestRequestKey } { SentDate} " +
+            $"{CloseDate} {OrderDate } {Status} class Host";
 
     }
 }

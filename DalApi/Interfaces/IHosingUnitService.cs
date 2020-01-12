@@ -9,7 +9,7 @@ namespace DalApi.Interfaces
 {
     public interface IHosingUnitService
     {
-        void AddHostingUnit(HostingUnit hostingUnit);
+        int AddHostingUnit(HostingUnit hostingUnit);
         void RemoveHostingUnit(int key);
         void UpdateHostingUnit(HostingUnit hostingUnit);
         HostingUnit GetHostingUnit(int key);

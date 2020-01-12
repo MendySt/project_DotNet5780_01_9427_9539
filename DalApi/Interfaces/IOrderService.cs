@@ -11,7 +11,7 @@ namespace DalApi.Interfaces
     public interface IOrderService
     {
         Order GetOrder(int key);
-        void AddOrder(Order order);
+        int AddOrder(Order order);
         void UpdateOrderStatus(int key, Status_Order status_Order);
         List<Order> GetOrders();
         //public delegate bool Predicate<T>(T obj);

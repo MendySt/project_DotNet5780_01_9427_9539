@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-    static class  Configuration
-    {
-    }
+        public static class Configuration
+        {
+        public static int PersonKey { get; set; } = 0;
+            public static int OrderKey { get; set; } = 0;
+        public static int HostingUnitKey { get; set; } = 0;
+        public static int HostKey { get; set; } = 0;
+        public static int GuestRequestKey { get; set; } = 0;
+        public static int BankBranchKey { get; set; } = 0;
+        }
 }

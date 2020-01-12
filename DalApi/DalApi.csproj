@@ -56,7 +56,6 @@
     <Compile Include="DalConfig.cs" />
     <Compile Include="DalFactory.cs" />
     <Compile Include="enum_s.cs" />
-    <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\GuestRequest.cs" />
     <Compile Include="Models\Host.cs" />
     <Compile Include="Models\HostingUnit.cs" />

@@ -8,36 +8,45 @@ using DalApi.Interfaces;
 using DO;
 using DO.Models;
 using DS;
+using Dal;
 
 namespace DalObject
 {
     public class DalObject : IDal, IGuestRequestService, IHostService, IPersonService, IHosingUnitService, IOrderService, IBankBranchService
     {
-        public void AddGuestRequest(GuestRequest guestRequest)
+        public int AddGuestRequest(GuestRequest guestRequest)
         {
             DataSource.guestRequests.Add(Cloning.Clone(guestRequest));
+            return ++Configuration.GuestRequestKey;
         }
 
-        public void AddHost(Host host)
+        public int  AddHost(Host host)
         {
             DataSource.hosts.Add(Cloning.Clone(host));
+            return ++Configuration.HostKey;
         }
 
-        public void AddHostingUnit(HostingUnit hostingUnit)
+        public int  AddHostingUnit(HostingUnit hostingUnit)
         {
             DataSource.hostingUnits.Add(Cloning.Clone(hostingUnit));
+            return ++Configuration.HostingUnitKey;
         }
 
-        public void AddOrder(Order order)
+        public int  AddOrder(Order order)
         {
             DataSource.orders.Add(Cloning.Clone(order));
+            return ++Configuration.OrderKey;
         }
 
-        public void AddPerson(Person person)
+        public int  AddPerson(Person person)
         {
-            DataSource.persons.Add(Cloning.Clone(person));
+            if (DataSource.persons.Any(x => x.Id != person.Id))// check we dont have any two with same ID 
+            {
+                DataSource.persons.Add(Cloning.Clone(person));
+                return ++Configuration.PersonKey;
+            }
+            return 10;//exception error
         }
-
         public void DeleteHost(int id)
         {
             DataSource.hosts.Find(x => x.Id == id).IsAvailable = false;
