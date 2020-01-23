@@ -8,5 +8,6 @@ namespace BO.Models
 {
     class ManagerBO:PersonBO
     {
+
     }
 }

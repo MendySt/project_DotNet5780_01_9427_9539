@@ -45,6 +45,7 @@
     <Compile Include="BL.cs" />
     <Compile Include="BlApi.cs" />
     <Compile Include="BO.cs" />
+    <Compile Include="Convert.cs" />
     <Compile Include="IBl.cs" />
     <Compile Include="Models\BankBranchBO.cs" />
     <Compile Include="Models\ClientBO.cs" />
@@ -59,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DalApi\DalApi.csproj">
+      <Project>{51ff4e97-3dd3-467a-bb2e-6cb0d85626ba}</Project>
+      <Name>DalApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

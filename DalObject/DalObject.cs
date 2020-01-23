@@ -12,8 +12,13 @@ using Dal;
 
 namespace DalObject
 {
-    public class DalObject : IDal, IGuestRequestService, IHostService, IPersonService, IHosingUnitService, IOrderService, IBankBranchService
+    internal class DalObject : IDal, IGuestRequestService, IHostService, IPersonService, IHosingUnitService, IOrderService, IBankBranchService
     {
+        private DalObject()
+        {
+
+        }
+        public DalObject dalObject { get; } = new DalObject();
         public int AddGuestRequest(GuestRequest guestRequest)
         {
             DataSource.guestRequests.Add(Cloning.Clone(guestRequest));
@@ -105,12 +110,7 @@ namespace DalObject
 
         public List<GuestRequest> GetGuestRequests()
         {
-            List<GuestRequest> newGuestRequest = new List<GuestRequest>();
-            foreach (var item in DataSource.guestRequests)
-            {
-                newGuestRequest.Add(Cloning.Clone(item));
-            }
-            return newGuestRequest;
+            return (from gr in DataSource.guestRequests select Cloning.Clone(gr)).ToList();
         }
 
         public Host GetHost(int id)
@@ -125,12 +125,7 @@ namespace DalObject
 
         public List<HostingUnit> GetHostingUnits()
         {
-            List<HostingUnit> newhostingUnits = new List<HostingUnit>();
-            foreach (var item in DataSource.hostingUnits)
-            {
-                newhostingUnits.Add(Cloning.Clone(item));
-            }
-            return newhostingUnits;
+            return (from hu in DataSource.hostingUnits select Cloning.Clone(hu)).ToList();
         }
       
         public Person GetPerson(int id)
@@ -180,12 +175,7 @@ namespace DalObject
 
         public List<Order> GetOrders()
         {
-            List<Order> neworders = new List<Order>();
-            foreach (var item in DataSource.orders)
-            {
-                neworders.Add(Cloning.Clone(item));
-            }
-            return neworders;
+            return (from go in DataSource.orders select Cloning.Clone(go)).ToList();
         }
 
         public void UpdateOrderStatus(int key, Status_Order status_Order)

@@ -17,8 +17,7 @@ namespace BO.Models
         public string LastName { set; get; }
         public double PhoneNo { set; get; }
         static public int Key { get; }
-        public int Address { get; set; }
-
+        public string Address { get; set; }
 
         public override string ToString() => $"{Id} {IdType} {Status } {Password } { Email} {FirstName }" +
             $" {LastName} {PhoneNo } class PersonBO";

@@ -15,11 +15,12 @@ namespace BO.Models
         public int BankAccountNumber { get; set; }
         public bool CollectionClearance { get; set; }
         public bool IsAvailable { get; set; }
-        public List<GuestRequestBO> guestRequestBOs { get; set; }
+        public BankBranchBO BankBranchBO { get; set; }
+        public List<HostingUnitBO> hostingUnitBOs { get; set; }
         public List<OrderBO> orderBOs { get; set; }
 
         public override string ToString()=> $"{IdHost} {webSite} {BankNumber} {BranchNumber } {IsAvailable} {BankAccountNumber} " +
-            $"{CollectionClearance} {guestRequestBOs} {orderBOs}  class HostBO";
+            $"{CollectionClearance} {hostingUnitBOs} {orderBOs}  class HostBO";
        
     }
 }
