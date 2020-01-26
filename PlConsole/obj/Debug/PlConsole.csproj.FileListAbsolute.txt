@@ -1,0 +1,6 @@
+C:\Users\owner\Source\Repos\project_DotNet5780_01_9427_9539\bin\PlConsole.exe.config
+C:\Users\owner\Source\Repos\project_DotNet5780_01_9427_9539\bin\PlConsole.exe
+C:\Users\owner\Source\Repos\project_DotNet5780_01_9427_9539\bin\PlConsole.pdb
+C:\Users\owner\Source\Repos\project_DotNet5780_01_9427_9539\PlConsole\obj\Debug\PlConsole.csprojAssemblyReference.cache
+C:\Users\owner\Source\Repos\project_DotNet5780_01_9427_9539\PlConsole\obj\Debug\PlConsole.exe
+C:\Users\owner\Source\Repos\project_DotNet5780_01_9427_9539\PlConsole\obj\Debug\PlConsole.pdb
